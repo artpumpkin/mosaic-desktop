@@ -40,7 +40,7 @@ yarn-error.log*
 # local data
 /data
 
-# synthetic local test media for /player-test (generated via
+# synthetic local test media (generated via
 # public/test-media/README.md — too big to commit)
 /public/test-media/*.mp4
 /public/test-media/*.mkv

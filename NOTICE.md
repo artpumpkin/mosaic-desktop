@@ -15,5 +15,4 @@ exact builds and dependent libraries they bundle; some builds have GPL/AGPL
 obligations that go beyond this repository's MIT license.
 
 Remote catalog artwork, books, broadcasts, videos and service trademarks are
-not relicensed by this project. Test media downloads are optional and excluded
-from Git. Use synthetic or independently licensed media for contributions.
+not relicensed by this project. Generated synthetic test media are optional and excluded from Git. Use synthetic or independently licensed media for contributions.
