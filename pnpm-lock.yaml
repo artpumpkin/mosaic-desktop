@@ -84,8 +84,8 @@ importers:
         specifier: ^3.10.1
         version: 3.10.1(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react-is@16.13.1)(react@19.2.8)(redux@5.0.1)
       trystero:
-        specifier: ^0.24.0
-        version: 0.24.0
+        specifier: ^0.25.4
+        version: 0.25.4
       zod:
         specifier: ^4.5.4
         version: 4.5.4
@@ -973,11 +973,11 @@ packages:
   '@tauri-apps/plugin-sql@2.4.1':
     resolution: {integrity: sha512-w9fImJ2XaCLFEj+kLbs8nO/Idq89mpjl//Bm37JZo8AugbaVzaW5iHTjjcozHjtLgjb0IAQjYromv0YpzDOFkA==}
 
-  '@trystero-p2p/core@0.24.0':
-    resolution: {integrity: sha512-W5ATiflgzZLE21fN2VA3YsK2yBJEzCvhmJ/9q2Vm3QT/gcdqDpcBxsO0DYCy/wE1PBEwoB+A75eBNtGIGAPdxw==}
+  '@trystero-p2p/core@0.25.4':
+    resolution: {integrity: sha512-ehvSL1FqW962XyEctXngeDF/IOM1bWmfCKBNR4vwmVa0JGfM0+dlY4TEzSEGghYp3qqGCrpFIVTxdvlBUGVO6Q==}
 
-  '@trystero-p2p/nostr@0.24.0':
-    resolution: {integrity: sha512-LmsJSicsFU/rhmOWYaP/OxFl3rwGieX+q0eh0pAWUQM7IXbMu6tLC5+aAimtHitikPv9r6sck6EUTWMin8dBAw==}
+  '@trystero-p2p/nostr@0.25.4':
+    resolution: {integrity: sha512-QDox1VVHl0ro/CLfQVUtMS9EQbtJhQM7CCsO4SGv9KrPBT+x3bmOqQ4Y6iugsLzQ6sW+a2cwUTxjDRz/BywqMg==}
 
   '@tybys/wasm-util@0.10.3':
     resolution: {integrity: sha512-F3fo1MYrRJYL3zER0OUOmkutjr1Vp23m7OsSgp7nq4SP6OqX6C/56XFIPAl5bt3zaBRjmW7SGz3u/6LwFpYcOg==}
@@ -2812,8 +2812,8 @@ packages:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
 
-  trystero@0.24.0:
-    resolution: {integrity: sha512-IoY7kXNQg+jXQ7byjg69FNHbHaayUijnd3bNsLLumHQ7rk5p1r0Vu0JZA5JEoKYFAxGBS4shxE7MuNgsOntu+A==}
+  trystero@0.25.4:
+    resolution: {integrity: sha512-tFYn/fO1kBeSKLUxRPKHH2n5jIuz9zlPPF9SmCVrGBiPNDGtFZyHuQONMUwftnCclTWlVsLoTus5/6eHhVEg+Q==}
 
   ts-api-utils@2.5.0:
     resolution: {integrity: sha512-OJ/ibxhPlqrMM0UiNHJ/0CKQkoKF243/AEmplt3qpRgkW8VG7IfOS41h7V8TjITqdByHzrjcS/2si+y4lIh8NA==}
@@ -3609,12 +3609,12 @@ snapshots:
     dependencies:
       '@tauri-apps/api': 2.11.1
 
-  '@trystero-p2p/core@0.24.0': {}
+  '@trystero-p2p/core@0.25.4': {}
 
-  '@trystero-p2p/nostr@0.24.0':
+  '@trystero-p2p/nostr@0.25.4':
     dependencies:
       '@noble/secp256k1': 3.2.0
-      '@trystero-p2p/core': 0.24.0
+      '@trystero-p2p/core': 0.25.4
 
   '@tybys/wasm-util@0.10.3':
     dependencies:
@@ -5660,9 +5660,9 @@ snapshots:
     dependencies:
       is-number: 7.0.0
 
-  trystero@0.24.0:
+  trystero@0.25.4:
     dependencies:
-      '@trystero-p2p/nostr': 0.24.0
+      '@trystero-p2p/nostr': 0.25.4
 
   ts-api-utils@2.5.0(typescript@5.9.3):
     dependencies:
