@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-stop-macos-system-audio"
+description = "Enables the stop_macos_system_audio command without any pre-configured scope."
+commands.allow = ["stop_macos_system_audio"]
+
+[[permission]]
+identifier = "deny-stop-macos-system-audio"
+description = "Denies the stop_macos_system_audio command without any pre-configured scope."
+commands.deny = ["stop_macos_system_audio"]

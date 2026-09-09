@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-cleanup-cancel-scan"
+description = "Enables the cleanup_cancel_scan command without any pre-configured scope."
+commands.allow = ["cleanup_cancel_scan"]
+
+[[permission]]
+identifier = "deny-cleanup-cancel-scan"
+description = "Denies the cleanup_cancel_scan command without any pre-configured scope."
+commands.deny = ["cleanup_cancel_scan"]

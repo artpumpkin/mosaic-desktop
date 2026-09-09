@@ -1,0 +1,97 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+/.pnpm-store
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# local data
+/data
+
+# synthetic local test media for /player-test (generated via
+# public/test-media/README.md — too big to commit)
+/public/test-media/*.mp4
+/public/test-media/*.mkv
+/public/test-media/*.webm
+/public/test-media/*.srt
+/public/test-media/*.vtt
+
+# tauri build outputs
+/src-tauri/target
+/src-tauri/target-docker-out
+/src-tauri/gen
+/dist
+
+# Locally supplied native runtime libraries
+/src-tauri/vendor-win
+
+# tauri-plugin-libmpv wrapper dylibs — downloaded via
+# `npx tauri-plugin-libmpv-api setup-lib`; reproducible, no need to
+# track binaries in git.
+/src-tauri/lib
+
+# one-shot DB migration dump (contains plaintext API secrets — never commit)
+/migration.json
+
+# bundled media-optimization tools + Real-ESRGAN models — large binaries
+# installed separately; not redistributed in the source repository.
+/src-tauri/binaries/*
+!/src-tauri/binaries/.gitkeep
+/src-tauri/media-models/*
+!/src-tauri/media-models/.gitkeep
+
+# local Claude Code agent tooling (launch config, lock files, local settings)
+/.claude/
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Release hygiene
+**/node_modules/
+**/target/
+**/dist-js/
+*.db
+*.db-*
+*.sqlite*
+*.key
+*.p12
+*.pfx
+*.dmg
+*.dll
+*.lib
+*.exe
+
+/packages/mpv-player/Cargo.lock

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-mpv-set-property-str"
+description = "Enables the mpv_set_property_str command without any pre-configured scope."
+commands.allow = ["mpv_set_property_str"]
+
+[[permission]]
+identifier = "deny-mpv-set-property-str"
+description = "Denies the mpv_set_property_str command without any pre-configured scope."
+commands.deny = ["mpv_set_property_str"]

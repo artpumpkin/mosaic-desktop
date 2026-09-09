@@ -1,0 +1,685 @@
+@import "tailwindcss";
+
+/* Scan the player package so Tailwind v4 generates the utility classes
+   used inside its shipped components (node_modules isn't scanned by
+   default). The keyframes those classes reference come from the
+   package's styles.css, imported on the player page. */
+@source "../node_modules/@artpumpkin/mpv-player/dist-js";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f7f7f9;
+  --foreground: #0a0a0f;
+  --surface-1: rgba(0, 0, 0, 0.04);
+  --surface-1-hover: rgba(0, 0, 0, 0.06);
+  --surface-2: rgba(0, 0, 0, 0.025);
+  --surface-2-hover: rgba(0, 0, 0, 0.04);
+  --surface-2-focus: rgba(0, 0, 0, 0.05);
+  --border-1: rgba(0, 0, 0, 0.08);
+  --border-1-hover: rgba(0, 0, 0, 0.14);
+  --border-2: rgba(0, 0, 0, 0.06);
+  --placeholder: rgba(0, 0, 0, 0.4);
+  --scrollbar: rgba(0, 0, 0, 0.12);
+  --scrollbar-hover: rgba(0, 0, 0, 0.2);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --sidebar-bg: rgba(255, 255, 255, 0.7);
+  --select-option-bg: #ffffff;
+  --aurora-opacity: 0.35;
+  --gradient-text-1: #7c3aed;
+  --gradient-text-2: #c026d3;
+  --gradient-text-3: #0891b2;
+  color-scheme: light;
+}
+
+.dark {
+  --background: #07070b;
+  --foreground: #f5f5f7;
+  --surface-1: rgba(255, 255, 255, 0.04);
+  --surface-1-hover: rgba(255, 255, 255, 0.06);
+  --surface-2: rgba(255, 255, 255, 0.025);
+  --surface-2-hover: rgba(255, 255, 255, 0.035);
+  --surface-2-focus: rgba(255, 255, 255, 0.04);
+  --border-1: rgba(255, 255, 255, 0.08);
+  --border-1-hover: rgba(255, 255, 255, 0.14);
+  --border-2: rgba(255, 255, 255, 0.04);
+  --placeholder: rgba(255, 255, 255, 0.25);
+  --scrollbar: rgba(255, 255, 255, 0.08);
+  --scrollbar-hover: rgba(255, 255, 255, 0.16);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --sidebar-bg: rgba(10, 10, 15, 0.6);
+  --select-option-bg: #16161d;
+  --aurora-opacity: 0.55;
+  --gradient-text-1: #c4b5fd;
+  --gradient-text-2: #f0abfc;
+  --gradient-text-3: #67e8f9;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html,
+body {
+  /* Background is INTENTIONALLY transparent. The Tauri window has
+     `transparent: true` + `backgroundColor: "#07070b"` — the macOS
+     NSWindow's contentView paints the dark color, and our mpv NSView
+     (positioned BELOW the WKWebView) draws video in its rect. With
+     body/html transparent, the webview is clear where no HTML
+     element is opaque, so HTML controls render naturally on top of
+     the video instead of needing to shrink the mpv view to make room.
+     Page content (AppShell's main, panels, cards) provides its own
+     opaque backgrounds for non-video pages, so visually nothing
+     changes outside the player. */
+  background: transparent;
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  /* Native desktop feel: no rubber-band overscroll, no pull-to-refresh. */
+  overscroll-behavior: none;
+  overflow-x: hidden;
+  /* Native-app feel: labels, buttons, poster titles, etc. shouldn't be
+     text-selectable. Form inputs re-enable selection below so the user can
+     still edit search queries, settings fields, etc. */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  cursor: default;
+}
+
+/* Form controls + anywhere the user actually needs to edit/select text.
+   Exclude non-text input types (range sliders, checkboxes, etc.) so
+   they don't inherit the text I-beam cursor — sliders should show
+   pointer (or whatever Tailwind class the component author picked). */
+input:not([type="range"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="color"]):not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="image"]),
+textarea,
+select,
+[contenteditable="true"],
+[contenteditable=""] {
+  -webkit-user-select: text;
+  user-select: text;
+  cursor: text;
+}
+
+/* Native-app feel: every clickable affordance gets the pointer cursor.
+   Body sets `cursor: default`, so without this rule buttons/links/role-button
+   elements inherit the arrow instead of the hand. */
+button,
+a,
+label,
+summary,
+select,
+[role="button"],
+[role="link"],
+[role="tab"],
+[role="menuitem"],
+[role="option"],
+[role="checkbox"],
+[role="radio"],
+[role="switch"],
+[type="button"],
+[type="submit"],
+[type="reset"] {
+  cursor: pointer;
+}
+
+button:disabled,
+[role="button"][aria-disabled="true"],
+[type="button"]:disabled,
+[type="submit"]:disabled,
+[type="reset"]:disabled {
+  cursor: not-allowed;
+}
+
+/* The native <video> controls handle their own cursor — keep it pointer-y. */
+video,
+video::-webkit-media-controls,
+video::-webkit-media-controls * {
+  cursor: auto;
+}
+
+/* --- Aurora background blobs ---------------------------------- */
+@keyframes aurora {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(40px, -30px, 0) scale(1.1);
+  }
+  100% {
+    transform: translate3d(-30px, 40px, 0) scale(0.95);
+  }
+}
+
+.aurora-blob {
+  position: fixed;
+  border-radius: 9999px;
+  filter: blur(110px);
+  opacity: var(--aurora-opacity);
+  pointer-events: none;
+  will-change: transform;
+  animation: aurora 22s ease-in-out infinite alternate;
+  z-index: 0;
+  mix-blend-mode: screen;
+}
+
+/* --- Fade in up ------------------------------------------------ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* --- Skeleton shimmer (loading placeholders) -----------------
+   A soft base tint with a highlight sweep travelling left→right.
+   Add `.skeleton` to any block to make it a shimmering placeholder. */
+@keyframes skeleton-sweep {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--foreground, #fff) 7%, transparent);
+  isolation: isolate;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in srgb, var(--foreground, #fff) 9%, transparent) 50%,
+    transparent 100%
+  );
+  animation: skeleton-sweep 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton::after {
+    animation: none;
+  }
+}
+
+/* --- Loader rotation (MediaLoader arcs) ----------------------- */
+@keyframes spin360 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.media-loader-arc {
+  animation: spin360 0.9s linear infinite;
+}
+
+.media-loader-arc-rev {
+  animation: spin360 1.5s linear infinite reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .media-loader-arc,
+  .media-loader-arc-rev {
+    animation: none;
+  }
+}
+
+/* --- Fullscreen-player app chrome hiding ----------------------
+   The structural fullscreen rules (promote `[data-player-fullscreen-keep]`,
+   hide non-ancestor elements, `body.player-fullscreen { overflow: hidden }`)
+   and the menu / feedback @keyframes now ship with @artpumpkin/mpv-player
+   (styles.css, imported on the player page). Here we only add the
+   Mosaic-specific chrome the package can't know about: the aurora
+   background blobs and the left sidebar get hidden in fullscreen so
+   they don't paint over the native mpv view. */
+body.player-fullscreen .aurora-blob,
+body.player-fullscreen aside[class*="fixed"][class*="left-0"] {
+  display: none !important;
+}
+
+/* The keep-container (the video surface) is promoted to a fixed full-viewport
+   modal in fullscreen, but its ANCESTORS stay in normal flow. TVPlayer's outer
+   card carries a border + drop shadow + rounded corners (Movies puts the keep
+   attr on its outermost wrapper, so it has no chromed ancestor — TV puts it on
+   the inner stage, so the card frame is an ancestor). With the native mpv view
+   painting behind the transparent webview, that otherwise-empty card paints a
+   faint rounded rectangle floating over the fullscreen picture. Strip the
+   chrome from every ancestor of the keep element. We canNOT display:none them —
+   that would also remove the promoted video surface nested inside. */
+body.player-fullscreen main :has([data-player-fullscreen-keep]):not([data-player-fullscreen-keep]) {
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+/* --- Windowed mpv player overlay (Movies) --------------------
+   The Movies player overlay is portaled to <body> and the mpv video paints
+   in a native NSView BELOW the transparent webview. Any opaque HTML over the
+   video rect hides it — including the app shell behind the overlay. While the
+   mpv player is open we hide every direct <body> child that doesn't contain
+   the player, leaving a transparent path down to the native layer. Unlike
+   the package's `player-fullscreen`, we DON'T promote the video element, so
+   the player's title bar / footer chrome keep their normal layout. */
+body.mpv-overlay-open
+  > *:not(:has([data-player-fullscreen-keep])):not([data-player-fullscreen-keep]) {
+  display: none !important;
+}
+
+/* --- Indeterminate progress bar (player loading) -------------- */
+@keyframes indeterminate-slide {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+/* --- Shimmer for hero gradient text --------------------------- */
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    var(--gradient-text-1) 0%,
+    var(--gradient-text-2) 35%,
+    var(--gradient-text-3) 70%,
+    var(--gradient-text-1) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 8s ease-in-out infinite;
+}
+
+/* --- Glass surface utility (used by GlassCard) ---------------- */
+.glass {
+  background-color: var(--surface-1);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--border-1);
+  box-shadow: var(--shadow-glass);
+}
+
+.glass-hover {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+.glass-hover:hover {
+  background-color: var(--surface-1-hover);
+  border-color: var(--border-1-hover);
+  transform: translateY(-2px);
+}
+
+/* --- Inputs --------------------------------------------------- */
+input,
+select,
+textarea {
+  background-color: var(--surface-2);
+  border: 1px solid var(--border-1);
+  color: var(--foreground);
+  border-radius: 0.625rem;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  transition:
+    border-color 0.15s,
+    background-color 0.15s,
+    box-shadow 0.15s;
+  width: 100%;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--placeholder);
+}
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--border-1-hover);
+  background-color: var(--surface-2-hover);
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgba(167, 139, 250, 0.55);
+  background-color: var(--surface-2-focus);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 0 0 3px rgba(139, 92, 246, 0.18);
+}
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  accent-color: rgb(139, 92, 246);
+  cursor: pointer;
+  box-shadow: none;
+}
+/* Range sliders: the generic `input` rule above gives them the
+   surface-2 background + padding/border which we DON'T want for the
+   custom-drawn sliders in PlayerControls. Reset to a transparent,
+   no-chrome, pointer-cursor baseline so the Tailwind classes on each
+   range input control its actual appearance.
+
+   Targets the input itself AND its shadow-DOM pseudo-elements
+   (`::-webkit-slider-runnable-track`, `::-webkit-slider-thumb`) —
+   browsers can show the text I-beam over those even when the host
+   input has cursor:pointer, which is what was leaking through. */
+input[type="range"] {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track,
+input[type="range"]::-webkit-slider-thumb {
+  cursor: pointer;
+}
+input[type="range"]:disabled,
+input[type="range"]:disabled::-webkit-slider-runnable-track,
+input[type="range"]:disabled::-webkit-slider-thumb {
+  cursor: default;
+}
+select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px;
+  padding-right: 2rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+select option {
+  background-color: var(--select-option-bg);
+  color: var(--foreground);
+}
+
+/* --- Recharts ------------------------------------------------- */
+.recharts-wrapper,
+.recharts-surface,
+.recharts-sector,
+.recharts-layer {
+  outline: none !important;
+}
+.recharts-sector:focus,
+.recharts-sector:focus-visible {
+  outline: none !important;
+}
+
+/* --- Buttons -------------------------------------------------- */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #d946ef 100%);
+  color: white;
+  font-weight: 500;
+  font-size: 0.875rem;
+  padding: 0.55rem 1rem;
+  border-radius: 0.625rem;
+  box-shadow: 0 6px 20px -6px rgba(168, 85, 247, 0.5);
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s,
+    opacity 0.15s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px -6px rgba(168, 85, 247, 0.6);
+}
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.5rem;
+  background-color: var(--surface-1);
+  border: 1px solid var(--border-1);
+  color: var(--foreground);
+  transition: background-color 0.15s;
+}
+.btn-ghost:hover {
+  background-color: var(--surface-1-hover);
+}
+
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 0.5rem;
+  background-color: rgba(244, 63, 94, 0.12);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  color: rgb(253, 164, 175);
+  transition: background-color 0.15s;
+}
+.btn-danger:hover {
+  background-color: rgba(244, 63, 94, 0.2);
+}
+
+/* --- Scrollbar ----------------------------------------------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover);
+  background-clip: content-box;
+}
+
+/* --- Dark-mode contrast bump --------------------------------- */
+/* Tailwind's `text-neutral-500` (#737373) fails WCAG AA on our dark
+ * surfaces (#09090d / #111115) at ~4.19:1. Bump it to a tone that
+ * meets 4.5:1 on both while staying visibly muted versus neutral-400. */
+:where(:root.dark) .text-neutral-500 {
+  color: #909096;
+}
+
+/* --- Light-mode readability overrides ------------------------ */
+/* Components use Tailwind utility classes tuned for a dark background
+ * (text-neutral-300/400/500, text-emerald-300, bg-white/5, etc.). Rather
+ * than rewrite every component, we re-map those utilities when the root
+ * element does not have the `.dark` class. */
+:where(:root:not(.dark)) .text-white,
+:where(:root:not(.dark)) .text-neutral-100 {
+  color: #0a0a0f;
+}
+:where(:root:not(.dark)) .text-neutral-200 {
+  color: #18181b;
+}
+:where(:root:not(.dark)) .text-neutral-300 {
+  color: #27272a;
+}
+:where(:root:not(.dark)) .text-neutral-400,
+:where(:root:not(.dark)) .text-neutral-400\/70 {
+  color: #52525b;
+}
+:where(:root:not(.dark)) .text-neutral-500 {
+  color: #595d68;
+}
+:where(:root:not(.dark)) .text-neutral-700 {
+  color: #9ca3af;
+}
+:where(:root:not(.dark)) .text-violet-200 {
+  color: #6d28d9;
+}
+:where(:root:not(.dark)) .text-violet-300,
+:where(:root:not(.dark)) .text-violet-300\/80 {
+  color: #6d28d9;
+}
+:where(:root:not(.dark)) .text-emerald-300 {
+  color: #047857;
+}
+:where(:root:not(.dark)) .text-rose-300 {
+  color: #be123c;
+}
+:where(:root:not(.dark)) .text-amber-300,
+:where(:root:not(.dark)) .text-amber-300\/90 {
+  color: #92400e;
+}
+:where(:root:not(.dark)) .btn-danger {
+  color: #9f1239;
+}
+:where(:root:not(.dark)) .bg-white\/5,
+:where(:root:not(.dark)) .bg-white\/\[0\.04\],
+:where(:root:not(.dark)) .bg-white\/\[0\.06\] {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+:where(:root:not(.dark)) .hover\:bg-white\/5:hover,
+:where(:root:not(.dark)) .hover\:bg-white\/10:hover,
+:where(:root:not(.dark)) .hover\:bg-white\/\[0\.04\]:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+:where(:root:not(.dark)) .border-white\/5,
+:where(:root:not(.dark)) .border-white\/\[0\.04\],
+:where(:root:not(.dark)) .border-white\/\[0\.06\],
+:where(:root:not(.dark)) .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+:where(:root:not(.dark)) .bg-black\/40,
+:where(:root:not(.dark)) .bg-black\/60 {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* --- Pulsing dot --------------------------------------------- */
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(52, 211, 153, 0);
+  }
+}
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* --- Now-playing equalizer (TrackList active row) ------------ */
+@keyframes eqbar {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* --- Cleanup hero orb ---------------------------------------- */
+/* Soft breathing glow behind the ring while idle/ready. */
+@keyframes cleanup-breathe {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+.cleanup-breathe {
+  animation: cleanup-breathe 4s ease-in-out infinite;
+}
+/* Faster, brighter pulse while actively working. */
+.cleanup-breathe-fast {
+  animation: cleanup-breathe 1.6s ease-in-out infinite;
+}
+/* Continuous rotation for the indeterminate scan arc. */
+@keyframes cleanup-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.cleanup-spin {
+  animation: cleanup-spin 1.1s linear infinite;
+}
+/* Springy pop for the success checkmark + ready number. */
+@keyframes cleanup-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.cleanup-pop {
+  animation: cleanup-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Manga reader — subtle page-turn entrance when the spread/page changes. */
+@keyframes manga-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.manga-page-in {
+  animation: manga-page-in 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+}

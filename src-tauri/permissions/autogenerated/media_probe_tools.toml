@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-media-probe-tools"
+description = "Enables the media_probe_tools command without any pre-configured scope."
+commands.allow = ["media_probe_tools"]
+
+[[permission]]
+identifier = "deny-media-probe-tools"
+description = "Denies the media_probe_tools command without any pre-configured scope."
+commands.deny = ["media_probe_tools"]

@@ -1,0 +1,46 @@
+[package]
+name = "tauri-plugin-mpv-player"
+version = "0.1.1"
+description = "Embed a libmpv video player in a Tauri v2 app (macOS): a CAOpenGLLayer surface composited under a transparent WKWebView for Stremio/YouTube-style HTML overlay controls."
+authors = ["artpumpkin"]
+edition = "2021"
+rust-version = "1.85"
+license = "MIT"
+repository = "https://github.com/artpumpkin/mosaic-desktop/tree/main/packages/mpv-player"
+keywords = ["tauri", "plugin", "mpv", "video", "player"]
+categories = ["multimedia", "gui"]
+readme = "README.md"
+# Tauri's plugin permission system keys off this `links` value
+# (DEP_TAURI_PLUGIN_MPV_*) to locate `permissions/`. It is unrelated to
+# native library linking — `libmpv2-sys` (which emits `-lmpv`) has no
+# `links` key, so there is no collision.
+links = "tauri-plugin-mpv-player"
+exclude = ["/guest-js", "/dist-js", "/node_modules", "/target"]
+
+[dependencies]
+tauri-plugin-fs = "2"
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+parking_lot = "0.12"
+# Cross-platform deps: MpvHandle holds an Arc<Mutex<Option<libmpv2::Mpv>>>
+# referenced on every platform. libmpv2-sys emits `-lmpv`; the actual
+# rendering path (CAOpenGLLayer) is macOS-only and cfg-gated in src/mac.rs.
+libmpv2 = "6"
+libmpv2-sys = "4"
+# run_on_main uses a tokio oneshot to await main-thread work.
+tokio = { version = "1", features = ["sync"] }
+
+# macOS rendering surface. NSView + a custom CAOpenGLLayer subclass
+# driving libmpv's OpenGL render API. OpenGL/CoreFoundation frameworks
+# are linked via inline #[link] attributes in src/mac.rs (no build.rs
+# framework linking needed).
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = "0.6"
+objc2-foundation = "0.3"
+objc2-app-kit = { version = "0.3", features = [
+    "NSView", "NSWindow", "NSResponder", "NSGraphics",
+] }
+objc2-quartz-core = { version = "0.3", features = ["CALayer", "CAOpenGLLayer"] }
+
+[build-dependencies]
+tauri-plugin = { version = "2", features = ["build"] }

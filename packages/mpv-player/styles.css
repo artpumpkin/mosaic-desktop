@@ -1,0 +1,105 @@
+/* tauri-plugin-mpv-api — player styles.
+ *
+ * Import once in your app (e.g. in your root layout / globals):
+ *   import "tauri-plugin-mpv-api/styles.css";
+ *
+ * Tailwind v4 consumers ALSO need to scan the package so its utility
+ * classes get generated:
+ *   @source "../node_modules/tauri-plugin-mpv-api/dist-js";
+ *
+ * Prerequisite (set by the host app, a plugin can't): a transparent body
+ * background so the native mpv NSView shows through the WKWebView —
+ *   body { background: transparent; }
+ *
+ * --- z-index ranges used by this package ------------------------------
+ * To avoid collisions, the player's overlays occupy these layers (host
+ * apps should keep their own chrome clear of the high end):
+ *   z-[-1]   MpvPlayer placeholder in fullscreen (sits BELOW the webview
+ *            so the native video surface shows through)
+ *   z-20     PlayerStatsOverlay ("stats for nerds")
+ *   z-30     PlayerActionFeedback (play/pause pop)
+ *   z-50     PlayerControls dropdown menus
+ *   9999     fullscreen modal container (this file, below)
+ *   z-[10000] PlayerControls bar wrapper in fullscreen (must sit above
+ *            the 9999 modal so the bar stays interactive)
+ */
+
+/* --- Fullscreen modal -------------------------------------------------
+ * When the player enters fullscreen, the host adds the `player-fullscreen`
+ * class to <body> and marks the player container with
+ * `data-player-fullscreen-keep`. These rules promote that container to a
+ * full-viewport modal and hide everything that isn't on its ancestor
+ * path. `:has()` keeps the path from the body down to the container
+ * visible; only non-ancestor elements are hidden.
+ *
+ * NOTE: the generic structural rules below hide body-level siblings and
+ * non-ancestor descendants of <main>. App-specific chrome (custom
+ * backgrounds, sidebars, toasters) that you also want hidden in
+ * fullscreen should get its own `body.player-fullscreen .your-thing {
+ * display: none !important; }` rule in your app's CSS. */
+body.player-fullscreen {
+  /* Body stays transparent so the native mpv NSView shows through. */
+  overflow: hidden;
+}
+body.player-fullscreen > *:not(:has([data-player-fullscreen-keep])):not([data-player-fullscreen-keep]) {
+  display: none !important;
+}
+body.player-fullscreen main *:not([data-player-fullscreen-keep]):not(:has([data-player-fullscreen-keep])):not([data-player-fullscreen-keep] *) {
+  display: none !important;
+}
+body.player-fullscreen [data-player-fullscreen-keep] {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  max-width: none !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: transparent !important;
+}
+
+/* --- Menu open animations ---------------------------------------------
+ * Used by `animate-[menu-up_…]` / `animate-[menu-down_…]` in
+ * PlayerControls' dropdown menus. */
+@keyframes menu-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes menu-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Play/pause feedback pop ------------------------------------------
+ * Used by `PlayerActionFeedback` — the YouTube-style transient action
+ * indicator centered on the video when play/pause toggles. "Punch + fade":
+ * scales up to full briefly, then continues scaling out as it fades. */
+@keyframes player-feedback-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}

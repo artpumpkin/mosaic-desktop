@@ -1,0 +1,11 @@
+/target
+/dist-js
+node_modules
+*.tsbuildinfo
+.DS_Store
+
+# Vendored Windows libmpv runtime DLL (~112MB — over GitHub's 100MB limit).
+# Only the import lib (mpv.lib) is needed to link; the DLL is a runtime
+# artifact the consuming app bundles. Download/regenerate per
+# vendor/windows/README.md.
+/vendor/windows/x86_64/*.dll

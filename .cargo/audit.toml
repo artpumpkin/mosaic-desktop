@@ -1,0 +1,6 @@
+[advisories]
+# Optional sqlx-mysql dependency only. The supported macOS app enables SQLite;
+# `cargo tree --target aarch64-apple-darwin -i rsa` prints no active path.
+# No private-key RSA operation is compiled into the app. Reassess if database
+# features change. See docs/RELEASE_REVIEW.md.
+ignore = ["RUSTSEC-2023-0071"]

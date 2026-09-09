@@ -1,0 +1,79 @@
+[package]
+name = "mosaic"
+version = "0.9.133"
+description = "Personal life tracker"
+authors = ["artpumpkin"]
+edition = "2021"
+
+[lib]
+name = "mosaic_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+sqlx = { version = "0.8.6", default-features = false, features = ["sqlite", "runtime-tokio"] }
+tauri = { version = "2", features = ["protocol-asset", "devtools", "macos-private-api"] }
+tauri-plugin-sql = { version = "2", features = ["sqlite"] }
+tauri-plugin-http = "2"
+tauri-plugin-os = "2"
+tauri-plugin-fs = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-shell = "2"
+tauri-plugin-notification = "2"
+base64 = "0.22"
+percent-encoding = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rand = "0.8"
+sha2 = "0.10"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "stream"] }
+tokio = { version = "1", features = ["macros", "rt", "sync", "io-util", "time", "net"] }
+# On-demand media-tool installer (src/tools.rs): stream downloads + unzip.
+futures-util = "0.3"
+# Radio audio proxy (src/radio_proxy.rs): bridge reqwest's async byte stream
+# onto the tiny_http response body.
+bytes = "1"
+zip = { version = "2", default-features = false, features = ["deflate"] }
+librqbit = { version = "9.0.1", default-features = false, features = ["rust-tls"] }
+anyhow = "1"
+url = "2"
+# Cleanup feature: move files to the OS Trash (recoverable) + walk directories.
+# walkdir is already in the lock file transitively; promoted to a direct dep.
+trash = "5"
+walkdir = "2"
+# Tiny localhost HTTP server that streams torrent byte-ranges to libmpv
+# (which can't read our `torrent-stream://` WebKit custom scheme).
+tiny_http = "0.12"
+# Embedded libmpv video player, extracted into a standalone plugin
+# (../packages/mpv-player). It pulls in libmpv2 / libmpv2-sys,
+# parking_lot, and the macOS objc2 / CAOpenGLLayer deps transitively,
+# and links libmpv via its own build.rs.
+tauri-plugin-mpv-player = { path = "../packages/mpv-player" }
+
+# Native system-audio capture for screen-share on macOS. WKWebView can't
+# capture system audio via getDisplayMedia, so we tap ScreenCaptureKit
+# directly via the pure-Rust objc2 ecosystem. We deliberately avoid the
+# `screencapturekit` (Swift-bridge) crate so the build only needs Command
+# Line Tools, not a full Xcode install. Gated to mac so the Windows
+# cross-compile is unchanged.
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = "0.6"
+objc2-foundation = { version = "0.3", features = ["NSArray", "NSError", "NSString", "NSObject", "NSThread"] }
+objc2-screen-capture-kit = { version = "0.3", features = ["SCStream", "SCShareableContent", "objc2-core-media", "block2"] }
+objc2-core-media = { version = "0.3", features = ["CMSampleBuffer", "CMBlockBuffer", "objc2-core-audio-types"] }
+objc2-core-audio-types = "0.3"
+objc2-core-foundation = "0.3"
+# NOTE: objc2-app-kit + objc2-quartz-core (NSView / CAOpenGLLayer) moved
+# to tauri-plugin-mpv-player with the player. block2 + dispatch2 stay —
+# they're used by the ScreenCaptureKit system-audio capture feature.
+block2 = "0.6"
+dispatch2 = "0.3"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true

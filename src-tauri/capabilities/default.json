@@ -1,0 +1,178 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Default capabilities for the main window",
+  "windows": [
+    "main"
+  ],
+  "local": true,
+  "remote": {
+    "urls": [
+      "http://localhost:38947/*",
+      "http://localhost:3100/*"
+    ]
+  },
+  "permissions": [
+    "core:default",
+    "core:event:default",
+    "core:event:allow-listen",
+    "core:event:allow-unlisten",
+    "core:window:default",
+    "core:window:allow-set-fullscreen",
+    "core:window:allow-is-fullscreen",
+    "core:app:default",
+    "shell:allow-open",
+    "dialog:default",
+    "fs:default",
+    "os:default",
+    "sql:default",
+    "sql:allow-load",
+    "sql:allow-execute",
+    "sql:allow-select",
+    "sql:allow-close",
+    "http:default",
+    "allow-get-or-create-enc-key",
+    "allow-read-text-file",
+    "allow-write-text-file",
+    "allow-mint-turn-credentials",
+    "allow-start-macos-system-audio",
+    "allow-stop-macos-system-audio",
+    "allow-torrent-start",
+    "allow-torrent-status",
+    "allow-torrent-stop",
+    "allow-torrent-stop-all",
+    "allow-torrent-http-base",
+    "allow-radio-proxy-base",
+    "allow-cleanup-scan-app-cache",
+    "allow-cleanup-clear-app-cache",
+    "allow-cleanup-scan-system-junk",
+    "allow-cleanup-clean-system-junk",
+    "allow-cleanup-scan-large-files",
+    "allow-cleanup-scan-duplicates",
+    "allow-cleanup-trash-paths",
+    "allow-cleanup-open-full-disk-access",
+    "allow-cleanup-cancel-scan",
+    "allow-cleanup-reveal",
+    "allow-media-run-job",
+    "allow-media-cancel",
+    "allow-media-reveal",
+    "allow-media-file-size",
+    "allow-media-thumbnail",
+    "allow-media-estimate",
+    "allow-tools-status",
+    "allow-tools-install",
+    "allow-tools-cancel-install",
+    "allow-tools-uninstall",
+    "allow-audio-scan-library",
+    "notification:default",
+    "notification:allow-notify",
+    "notification:allow-is-permission-granted",
+    "notification:allow-request-permission",
+    "mpv-player:default",
+    "mpv-player:allow-command",
+    {
+      "identifier": "fs:allow-read-file",
+      "allow": [
+        {
+          "path": "$APPDATA/books/**"
+        },
+        {
+          "path": "$APPCACHE/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-read-dir",
+      "allow": [
+        {
+          "path": "$APPDATA/books/**"
+        },
+        {
+          "path": "$APPCACHE/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-write-file",
+      "allow": [
+        {
+          "path": "$APPDATA/books/**"
+        },
+        {
+          "path": "$APPCACHE/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-mkdir",
+      "allow": [
+        {
+          "path": "$APPDATA/books/**"
+        },
+        {
+          "path": "$APPCACHE/**"
+        }
+      ]
+    },
+    {
+      "identifier": "http:default",
+      "allow": [
+        {
+          "url": "https://api.binance.com/*"
+        },
+        {
+          "url": "https://www.okx.com/*"
+        },
+        {
+          "url": "https://eth-mainnet.g.alchemy.com/*"
+        },
+        {
+          "url": "https://api.coingecko.com/*"
+        },
+        {
+          "url": "https://open.er-api.com/*"
+        },
+        {
+          "url": "https://api.gold-api.com/*"
+        },
+        {
+          "url": "https://torrentio.strem.fun/*"
+        },
+        {
+          "url": "https://v3-cinemeta.strem.io/*"
+        },
+        {
+          "url": "https://opensubtitles-v3.strem.io/*"
+        },
+        {
+          "url": "https://api.real-debrid.com/*"
+        },
+        {
+          "url": "https://api.mangadex.org/*"
+        },
+        {
+          "url": "https://uploads.mangadex.org/*"
+        },
+        {
+          "url": "https://*.mangadex.network/*"
+        },
+        {
+          "url": "https://api.comick.fun/*"
+        },
+        {
+          "url": "https://*.comick.fun/*"
+        },
+        {
+          "url": "https://*.comick.pictures/*"
+        },
+        {
+          "url": "https://**"
+        },
+        {
+          "url": "http://**"
+        }
+      ]
+    },
+    "allow-import-backup"
+  ]
+}

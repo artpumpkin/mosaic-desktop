@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-cleanup-scan-large-files"
+description = "Enables the cleanup_scan_large_files command without any pre-configured scope."
+commands.allow = ["cleanup_scan_large_files"]
+
+[[permission]]
+identifier = "deny-cleanup-scan-large-files"
+description = "Denies the cleanup_scan_large_files command without any pre-configured scope."
+commands.deny = ["cleanup_scan_large_files"]

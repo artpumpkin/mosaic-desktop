@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-cleanup-open-full-disk-access"
+description = "Enables the cleanup_open_full_disk_access command without any pre-configured scope."
+commands.allow = ["cleanup_open_full_disk_access"]
+
+[[permission]]
+identifier = "deny-cleanup-open-full-disk-access"
+description = "Denies the cleanup_open_full_disk_access command without any pre-configured scope."
+commands.deny = ["cleanup_open_full_disk_access"]

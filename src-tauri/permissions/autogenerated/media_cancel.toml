@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-media-cancel"
+description = "Enables the media_cancel command without any pre-configured scope."
+commands.allow = ["media_cancel"]
+
+[[permission]]
+identifier = "deny-media-cancel"
+description = "Denies the media_cancel command without any pre-configured scope."
+commands.deny = ["media_cancel"]

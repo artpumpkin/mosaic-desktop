@@ -1,0 +1,1509 @@
+[
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "compressed",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-strip",
+      "-quality",
+      "80",
+      "-sampling-factor",
+      "4:2:0",
+      "-interlace",
+      "JPEG",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "compressed",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-strip",
+      "-quality",
+      "30",
+      "-sampling-factor",
+      "4:2:0",
+      "-interlace",
+      "JPEG",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "compressed",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-strip",
+      "-quality",
+      "100",
+      "-sampling-factor",
+      "4:2:0",
+      "-interlace",
+      "JPEG",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "",
+    "outputExt": "webp",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-quality",
+      "90",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "",
+    "outputExt": "webp",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-quality",
+      "90",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "",
+    "outputExt": "jpg",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-quality",
+      "90",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "",
+    "outputExt": "png",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-quality",
+      "90",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "",
+    "outputExt": "avif",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-quality",
+      "90",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "",
+    "outputExt": "tiff",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-quality",
+      "90",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "",
+    "outputExt": "pdf",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-quality",
+      "90",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "",
+    "outputExt": "webp",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-quality",
+      "30",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "",
+    "outputExt": "webp",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-quality",
+      "100",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "resized",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-resize",
+      "1920x1920>",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "resized",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-resize",
+      "75%",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "resized",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-resize",
+      "50%",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "resized",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-resize",
+      "25%",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "resized",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-resize",
+      "3840x3840>",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "resized",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-resize",
+      "1920x1920>",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "resized",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-resize",
+      "1280x1280>",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "resized",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-resize",
+      "800x800>",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "enhanced",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-auto-level",
+      "-sigmoidal-contrast",
+      "3x50%",
+      "-unsharp",
+      "0x1.2+1.0+0.02",
+      "-modulate",
+      "100,112",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "enhanced",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-unsharp",
+      "0x1.2+1.0+0.02",
+      "-modulate",
+      "100,112",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "enhanced",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-auto-level",
+      "-sigmoidal-contrast",
+      "3x50%",
+      "-unsharp",
+      "0x1.2+1.0+0.02",
+      "-modulate",
+      "100,112",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "enhanced",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-auto-level",
+      "-sigmoidal-contrast",
+      "3x50%",
+      "-modulate",
+      "100,112",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "enhanced",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-auto-level",
+      "-sigmoidal-contrast",
+      "3x50%",
+      "-unsharp",
+      "0x1.2+1.0+0.02",
+      "-modulate",
+      "100,112",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "enhanced",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-auto-level",
+      "-sigmoidal-contrast",
+      "3x50%",
+      "-unsharp",
+      "0x1.2+1.0+0.02",
+      "-modulate",
+      "100,112",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "enhanced",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-auto-level",
+      "-sigmoidal-contrast",
+      "3x50%",
+      "-enhance",
+      "-unsharp",
+      "0x1.2+1.0+0.02",
+      "-modulate",
+      "100,112",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "enhanced",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-auto-level",
+      "-sigmoidal-contrast",
+      "3x50%",
+      "-unsharp",
+      "0x1.2+1.0+0.02",
+      "-modulate",
+      "100,80",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "enhanced",
+    "progress": "indeterminate",
+    "args": [
+      "{input}",
+      "-auto-level",
+      "-sigmoidal-contrast",
+      "3x50%",
+      "-unsharp",
+      "0x1.2+1.0+0.02",
+      "-modulate",
+      "100,150",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "realesrgan-ncnn-vulkan",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "upscaled",
+    "outputExt": "png",
+    "progress": "realesrgan",
+    "args": [
+      "-i",
+      "{input}",
+      "-o",
+      "{output}",
+      "-s",
+      "4",
+      "-n",
+      "realesrgan-x4plus",
+      "-m",
+      "{models}"
+    ]
+  },
+  {
+    "tool": "realesrgan-ncnn-vulkan",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "upscaled",
+    "outputExt": "png",
+    "progress": "realesrgan",
+    "args": [
+      "-i",
+      "{input}",
+      "-o",
+      "{output}",
+      "-s",
+      "2",
+      "-n",
+      "realesrgan-x4plus",
+      "-m",
+      "{models}"
+    ]
+  },
+  {
+    "tool": "realesrgan-ncnn-vulkan",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "upscaled",
+    "outputExt": "png",
+    "progress": "realesrgan",
+    "args": [
+      "-i",
+      "{input}",
+      "-o",
+      "{output}",
+      "-s",
+      "4",
+      "-n",
+      "realesrgan-x4plus",
+      "-m",
+      "{models}"
+    ]
+  },
+  {
+    "tool": "realesrgan-ncnn-vulkan",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "upscaled",
+    "outputExt": "png",
+    "progress": "realesrgan",
+    "args": [
+      "-i",
+      "{input}",
+      "-o",
+      "{output}",
+      "-s",
+      "4",
+      "-n",
+      "realesrgan-x4plus",
+      "-m",
+      "{models}"
+    ]
+  },
+  {
+    "tool": "realesrgan-ncnn-vulkan",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "upscaled",
+    "outputExt": "png",
+    "progress": "realesrgan",
+    "args": [
+      "-i",
+      "{input}",
+      "-o",
+      "{output}",
+      "-s",
+      "4",
+      "-n",
+      "realesrgan-x4plus-anime",
+      "-m",
+      "{models}"
+    ]
+  },
+  {
+    "tool": "realesrgan-ncnn-vulkan",
+    "input": "/demo/sample.jpg",
+    "outputSuffix": "upscaled",
+    "outputExt": "png",
+    "progress": "realesrgan",
+    "args": [
+      "-i",
+      "{input}",
+      "-o",
+      "{output}",
+      "-s",
+      "4",
+      "-n",
+      "realesr-animevideov3",
+      "-m",
+      "{models}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "compressed",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-preset",
+      "medium",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "compressed",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "20",
+      "-preset",
+      "medium",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "compressed",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-preset",
+      "medium",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "compressed",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "28",
+      "-preset",
+      "medium",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "compressed",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "32",
+      "-preset",
+      "medium",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "compressed",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-preset",
+      "medium",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "compressed",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libx265",
+      "-crf",
+      "23",
+      "-preset",
+      "medium",
+      "-tag:v",
+      "hvc1",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "compressed",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-preset",
+      "fast",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "compressed",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-preset",
+      "medium",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "compressed",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-preset",
+      "slow",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-c:a",
+      "aac",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-c:a",
+      "aac",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "",
+    "outputExt": "mkv",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-c:a",
+      "aac",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "",
+    "outputExt": "mov",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-c:a",
+      "aac",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "",
+    "outputExt": "webm",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-c:v",
+      "libvpx-vp9",
+      "-crf",
+      "23",
+      "-c:a",
+      "libopus",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "1080p",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vf",
+      "scale=-2:1080",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-preset",
+      "medium",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "2160p",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vf",
+      "scale=-2:2160",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-preset",
+      "medium",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "1080p",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vf",
+      "scale=-2:1080",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-preset",
+      "medium",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "720p",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vf",
+      "scale=-2:720",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-preset",
+      "medium",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "480p",
+    "outputExt": "mp4",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vf",
+      "scale=-2:480",
+      "-c:v",
+      "libx264",
+      "-crf",
+      "23",
+      "-preset",
+      "medium",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "128k",
+      "-movflags",
+      "+faststart",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "audio",
+    "outputExt": "mp3",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vn",
+      "-c:a",
+      "libmp3lame",
+      "-q:a",
+      "2",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "audio",
+    "outputExt": "mp3",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vn",
+      "-c:a",
+      "libmp3lame",
+      "-q:a",
+      "2",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp4",
+    "outputSuffix": "audio",
+    "outputExt": "m4a",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vn",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "192k",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp3",
+    "outputSuffix": "",
+    "outputExt": "mp3",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vn",
+      "-c:a",
+      "libmp3lame",
+      "-b:a",
+      "192k",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp3",
+    "outputSuffix": "",
+    "outputExt": "mp3",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vn",
+      "-c:a",
+      "libmp3lame",
+      "-b:a",
+      "192k",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp3",
+    "outputSuffix": "",
+    "outputExt": "m4a",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vn",
+      "-c:a",
+      "aac",
+      "-b:a",
+      "192k",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp3",
+    "outputSuffix": "",
+    "outputExt": "opus",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vn",
+      "-c:a",
+      "libopus",
+      "-b:a",
+      "192k",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp3",
+    "outputSuffix": "",
+    "outputExt": "flac",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vn",
+      "-c:a",
+      "flac",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp3",
+    "outputSuffix": "",
+    "outputExt": "wav",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vn",
+      "-c:a",
+      "pcm_s16le",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp3",
+    "outputSuffix": "",
+    "outputExt": "mp3",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vn",
+      "-c:a",
+      "libmp3lame",
+      "-b:a",
+      "128k",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp3",
+    "outputSuffix": "",
+    "outputExt": "mp3",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vn",
+      "-c:a",
+      "libmp3lame",
+      "-b:a",
+      "192k",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp3",
+    "outputSuffix": "",
+    "outputExt": "mp3",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vn",
+      "-c:a",
+      "libmp3lame",
+      "-b:a",
+      "256k",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "ffmpeg",
+    "input": "/demo/sample.mp3",
+    "outputSuffix": "",
+    "outputExt": "mp3",
+    "progress": "ffmpeg",
+    "args": [
+      "-y",
+      "-i",
+      "{input}",
+      "-vn",
+      "-c:a",
+      "libmp3lame",
+      "-b:a",
+      "320k",
+      "-progress",
+      "pipe:1",
+      "-nostats",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "gs",
+    "input": "/demo/sample.pdf",
+    "outputSuffix": "compressed",
+    "outputExt": "pdf",
+    "progress": "indeterminate",
+    "args": [
+      "-sDEVICE=pdfwrite",
+      "-dCompatibilityLevel=1.4",
+      "-dPDFSETTINGS=/ebook",
+      "-dNOPAUSE",
+      "-dQUIET",
+      "-dBATCH",
+      "-sOutputFile={output}",
+      "{input}"
+    ]
+  },
+  {
+    "tool": "gs",
+    "input": "/demo/sample.pdf",
+    "outputSuffix": "compressed",
+    "outputExt": "pdf",
+    "progress": "indeterminate",
+    "args": [
+      "-sDEVICE=pdfwrite",
+      "-dCompatibilityLevel=1.4",
+      "-dPDFSETTINGS=/screen",
+      "-dNOPAUSE",
+      "-dQUIET",
+      "-dBATCH",
+      "-sOutputFile={output}",
+      "{input}"
+    ]
+  },
+  {
+    "tool": "gs",
+    "input": "/demo/sample.pdf",
+    "outputSuffix": "compressed",
+    "outputExt": "pdf",
+    "progress": "indeterminate",
+    "args": [
+      "-sDEVICE=pdfwrite",
+      "-dCompatibilityLevel=1.4",
+      "-dPDFSETTINGS=/ebook",
+      "-dNOPAUSE",
+      "-dQUIET",
+      "-dBATCH",
+      "-sOutputFile={output}",
+      "{input}"
+    ]
+  },
+  {
+    "tool": "gs",
+    "input": "/demo/sample.pdf",
+    "outputSuffix": "compressed",
+    "outputExt": "pdf",
+    "progress": "indeterminate",
+    "args": [
+      "-sDEVICE=pdfwrite",
+      "-dCompatibilityLevel=1.4",
+      "-dPDFSETTINGS=/printer",
+      "-dNOPAUSE",
+      "-dQUIET",
+      "-dBATCH",
+      "-sOutputFile={output}",
+      "{input}"
+    ]
+  },
+  {
+    "tool": "gs",
+    "input": "/demo/sample.pdf",
+    "outputSuffix": "compressed",
+    "outputExt": "pdf",
+    "progress": "indeterminate",
+    "args": [
+      "-sDEVICE=pdfwrite",
+      "-dCompatibilityLevel=1.4",
+      "-dPDFSETTINGS=/prepress",
+      "-dNOPAUSE",
+      "-dQUIET",
+      "-dBATCH",
+      "-sOutputFile={output}",
+      "{input}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.pdf",
+    "outputSuffix": "page",
+    "outputExt": "png",
+    "progress": "indeterminate",
+    "multiOutput": true,
+    "args": [
+      "-density",
+      "150",
+      "{input}",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.pdf",
+    "outputSuffix": "page",
+    "outputExt": "png",
+    "progress": "indeterminate",
+    "multiOutput": true,
+    "args": [
+      "-density",
+      "150",
+      "{input}",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.pdf",
+    "outputSuffix": "page",
+    "outputExt": "jpg",
+    "progress": "indeterminate",
+    "multiOutput": true,
+    "args": [
+      "-density",
+      "150",
+      "{input}",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.pdf",
+    "outputSuffix": "page",
+    "outputExt": "png",
+    "progress": "indeterminate",
+    "multiOutput": true,
+    "args": [
+      "-density",
+      "100",
+      "{input}",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.pdf",
+    "outputSuffix": "page",
+    "outputExt": "png",
+    "progress": "indeterminate",
+    "multiOutput": true,
+    "args": [
+      "-density",
+      "150",
+      "{input}",
+      "{output}"
+    ]
+  },
+  {
+    "tool": "magick",
+    "input": "/demo/sample.pdf",
+    "outputSuffix": "page",
+    "outputExt": "png",
+    "progress": "indeterminate",
+    "multiOutput": true,
+    "args": [
+      "-density",
+      "300",
+      "{input}",
+      "{output}"
+    ]
+  }
+]

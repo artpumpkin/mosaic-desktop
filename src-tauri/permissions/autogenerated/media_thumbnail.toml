@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-media-thumbnail"
+description = "Enables the media_thumbnail command without any pre-configured scope."
+commands.allow = ["media_thumbnail"]
+
+[[permission]]
+identifier = "deny-media-thumbnail"
+description = "Denies the media_thumbnail command without any pre-configured scope."
+commands.deny = ["media_thumbnail"]

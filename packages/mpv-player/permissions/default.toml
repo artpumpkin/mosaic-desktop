@@ -1,0 +1,5 @@
+"$schema" = "schemas/schema.json"
+
+[default]
+description = "Typed playback controls. Raw commands require allow-command and remain allowlisted in native code."
+permissions = ["allow-attach", "allow-set-bounds", "allow-load", "allow-play", "allow-pause", "allow-seek", "allow-set-property-str", "allow-set-property-f64", "allow-set-property-bool", "allow-stop"]

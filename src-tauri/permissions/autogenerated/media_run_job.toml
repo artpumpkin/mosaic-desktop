@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-media-run-job"
+description = "Enables the media_run_job command without any pre-configured scope."
+commands.allow = ["media_run_job"]
+
+[[permission]]
+identifier = "deny-media-run-job"
+description = "Denies the media_run_job command without any pre-configured scope."
+commands.deny = ["media_run_job"]

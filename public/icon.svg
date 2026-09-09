@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f0f17" />
+      <stop offset="100%" stop-color="#1a1a26" />
+    </linearGradient>
+    <linearGradient id="tile-finance" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#d946ef" />
+    </linearGradient>
+    <linearGradient id="tile-health" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="tile-future-1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#f97316" />
+    </linearGradient>
+    <linearGradient id="tile-future-2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)" />
+  <g transform="translate(96 96)">
+    <rect x="0" y="0" width="140" height="140" rx="22" fill="url(#tile-finance)" />
+    <rect x="180" y="0" width="140" height="140" rx="22" fill="url(#tile-health)" />
+    <rect x="0" y="180" width="140" height="140" rx="22" fill="url(#tile-future-2)" opacity="0.55" />
+    <rect x="180" y="180" width="140" height="140" rx="22" fill="url(#tile-future-1)" opacity="0.55" />
+  </g>
+</svg>

@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-radio-proxy-base"
+description = "Enables the radio_proxy_base command without any pre-configured scope."
+commands.allow = ["radio_proxy_base"]
+
+[[permission]]
+identifier = "deny-radio-proxy-base"
+description = "Denies the radio_proxy_base command without any pre-configured scope."
+commands.deny = ["radio_proxy_base"]

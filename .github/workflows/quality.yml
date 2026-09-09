@@ -1,0 +1,40 @@
+name: Quality
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+      - run: npm install --global pnpm@10.33.0
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @artpumpkin/mpv-player build
+      - run: pnpm typecheck && pnpm lint
+      - run: pnpm test && pnpm test:fixtures
+      - run: pnpm audit --audit-level=low
+      - run: pnpm build
+  native:
+    runs-on: macos-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 24
+      - run: npm install --global pnpm@10.33.0
+      - run: pnpm install --frozen-lockfile && pnpm build
+      - run: brew install mpv
+      - run: rustup update stable --no-self-update
+      - run: cargo test --manifest-path src-tauri/Cargo.toml --locked --lib
+      - run: cargo test --manifest-path src-tauri/Cargo.toml --locked -p tauri-plugin-mpv-player --lib
+      - run: cargo check --manifest-path src-tauri/Cargo.toml --release --locked
+      - run: cargo install cargo-audit --version 0.22.2 --locked
+      - run: cargo audit --file src-tauri/Cargo.lock
